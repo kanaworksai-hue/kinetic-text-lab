@@ -16,12 +16,17 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 - ホログラム風スキャン
 - RGB 分離
 - スライスジッター
+- ティアシフト
+- EDM パルス
 - インパクトタイトル
 - カラー残像トレイル
-- 音楽に反応する歌詞アニメーション
+- ナイフカット風の破片化と再構築
+- エコーバースト
+- いたずら文字
+- かわいいロール文字
 - ワンクリッククリーンアップ
 - KanaWorks_AI ロゴ表示
-- `X @KanaWorks_AI` ボタンで作者の X プロフィールを開く
+- `Want more?` ボタンで作者の X プロフィールリンクを表示
 
 ## 必要環境
 
@@ -79,13 +84,14 @@ Window > KANA Kinetic Text Lab.jsx
 
 何も起きない場合は、選択しているレイヤーがテキストレイヤーか確認してください。
 
-上部の `X @KanaWorks_AI` ボタンから作者の X プロフィールを開けます。
+上部の `Want more?` ボタンから作者の X プロフィールリンクを表示できます。
 
 ```text
+Want to learn more? Follow me
 https://x.com/KanaWorks_AI
 ```
 
-After Effects がブラウザ起動をブロックする場合、パネルが AE のスクリプトファイル/ネットワークアクセスを有効にするか確認します。OK を選ぶと、システムブラウザで X プロフィールを開けます。
+このボタンはブラウザを自動で開きません。
 
 ## エフェクト
 
@@ -93,8 +99,8 @@ After Effects がブラウザ起動をブロックする場合、パネルが AE
 
 - `Glitch Reveal`：ランダム文字から元の文字へ変化します。
 - `Cyber Decode`：ターミナル風、ハッカー風のデコード表現です。
-- `Type On`：文字を一文字ずつ表示します。
-- `Scramble Loop`：文字がランダムに変化し続けます。
+- `Type On`：本物のタイピングのように一文字ずつ表示し、末尾に点滅カーソルを追加します。元の文字色は保持します。
+- `Scramble Loop`：元の文字色を保持したまま、文字がランダムに変化し続けます。
 
 ### Style
 
@@ -102,23 +108,18 @@ After Effects がブラウザ起動をブロックする場合、パネルが AE
 - `Hologram`：スキャンライン、ノイズ、発光、軽い信号揺れを追加します。
 - `RGB Split`：赤とシアンの色ズレを追加します。
 - `Slice Jitter`：切り裂かれたようなデジタル文字の揺れを追加します。
+- `Tear Shift`：横方向の裂け目とズレを作ります。
+- `EDM Pulse`：元の文字色を保ち、黒いコア影とシアン/マゼンタ/ライムの Glow レイヤーで作る、読みやすいネオン EDM パルスです。
+- `Cute Roll`：先頭の文字から最後の文字へツイストの波が走る、かわいいカートゥーン風ロールです。各文字が順番につぶれ、横にひねられ、最後は通常の形状に戻ります。
+- `Dance`：漫画の THUNDER 風タイトルです。赤い太字、ライムの縁取り、黒い厚い影に、跳ね、横揺れ、ツイストの残像、爆発スター背景を加えます。
 
 ### Motion
 
-- `Impact Title`：タイトル出現時に強いスケールインパクトを追加します。
-- `Echo Trail`：文字の後ろにカラフルな残像を作ります。
-- `Beat Lyrics`：`Audio Amplitude` レイヤーに反応して文字が動きます。
-
-## Beat Lyrics の設定
-
-音楽に合わせて文字を動かす場合：
-
-1. 音楽ファイルをコンポジションに入れます。
-2. 音楽レイヤーを選択します。
-3. `Animation > Keyframe Assistant > Convert Audio to Keyframes` を実行します。
-4. After Effects が `Audio Amplitude` レイヤーを作成します。
-5. テキストレイヤーを選択します。
-6. `Beat Lyrics` をクリックします。
+- `Impact Title`：元の文字色を保ったまま、パンチのあるズーム、短いヒット揺れ、黒いインパクト影、シアン/ゴールドの衝撃エコーを加える、読みやすい映画予告風タイトルスラムです。
+- `Echo Trail`：文字移動に合わせて、多層の透明な遅延残像を作ります。スピード感と奥行きを出します。
+- `Knife Shatter`：文字を不規則な破片に切り、散らしてから再構築します。
+- `Echo Burst`：より強いバースト型のエコー残像を作ります。
+- `Mischief Text`：大文字小文字、記号、揺れ、跳ねを使った遊び心のある文字演出です。
 
 ## クリーンアップ
 
@@ -130,4 +131,16 @@ After Effects がブラウザ起動をブロックする場合、パネルが AE
 
 ロゴ素材は `KANA Kinetic Text Lab Assets/` に含まれています。
 
-まだライセンスは選択されていません。
+## Copyright
+
+Copyright © Tokyo AI Visuals LLC
+
+## Support Future Development
+
+Help fund GPU time, testing, and future updates.
+
+GPU Support — ¥500 JPY (approx. $3 USD)  
+https://www.paypal.com/paypalme/kanaworksai/500
+
+Future Development Support — ¥1500 JPY (approx. $10 USD)  
+https://www.paypal.com/paypalme/kanaworksai/1500

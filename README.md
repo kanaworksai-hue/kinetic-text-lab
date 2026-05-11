@@ -16,12 +16,17 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 - Hologram scan effect
 - RGB split
 - Slice jitter
+- Tear shift
+- EDM pulse
 - Impact title animation
 - Echo trail
-- Beat-reactive lyrics
+- Knife shatter and rebuild
+- Echo burst
+- Mischief text
+- Cute rolling text
 - One-click cleanup
 - Built-in KanaWorks_AI logo branding
-- `X @KanaWorks_AI` button that opens the creator profile
+- `Want more?` button that shows the creator profile link
 
 ## Requirements
 
@@ -79,13 +84,14 @@ Window > KANA Kinetic Text Lab.jsx
 
 If nothing happens, make sure the selected layer is a text layer.
 
-The `X @KanaWorks_AI` button opens the creator profile:
+The `Want more?` button shows the creator profile link:
 
 ```text
+Want to learn more? Follow me
 https://x.com/KanaWorks_AI
 ```
 
-If After Effects blocks browser opening, the panel asks whether to enable After Effects script file/network access. Choose OK to allow the panel to open the X profile in the system browser.
+The button does not open a browser automatically.
 
 ## Effects
 
@@ -93,8 +99,8 @@ If After Effects blocks browser opening, the panel asks whether to enable After 
 
 - `Glitch Reveal`: starts as random characters, then resolves into the original text.
 - `Cyber Decode`: a sharper terminal-style decode animation.
-- `Type On`: reveals text character by character.
-- `Scramble Loop`: keeps characters randomly changing over time.
+- `Type On`: simulates real typing, reveals text character by character, and adds a blinking cursor while preserving the original text color.
+- `Scramble Loop`: keeps characters randomly changing over time while preserving the original text color.
 
 ### Style
 
@@ -102,23 +108,18 @@ If After Effects blocks browser opening, the panel asks whether to enable After 
 - `Hologram`: scanlines, glow, noise, and slight signal movement.
 - `RGB Split`: red/cyan channel separation.
 - `Slice Jitter`: jittery, torn digital text.
+- `Tear Shift`: horizontal tear strips and offset glitch movement.
+- `EDM Pulse`: readable neon EDM pulse that preserves the original text color, with a dark core shadow plus cyan, magenta, and lime glow layers.
+- `Cute Roll`: creates a playful cartoon twist-roll. A per-letter wave travels from the first character to the last, pinching and twisting each letter before it returns to the normal text shape.
+- `Dance`: a comic THUNDER-style dancing title with red chunky letters, lime outline, black drop shadow, bounce, side sway, twist smears, and burst-star backgrounds.
 
 ### Motion
 
-- `Impact Title`: punchy scale burst for title hits.
-- `Echo Trail`: colorful text afterimages.
-- `Beat Lyrics`: scale and opacity react to an `Audio Amplitude` layer.
-
-## Beat Lyrics Setup
-
-To make text react to music:
-
-1. Add your audio file to the composition.
-2. Select the audio layer.
-3. Use `Animation > Keyframe Assistant > Convert Audio to Keyframes`.
-4. After Effects creates an `Audio Amplitude` layer.
-5. Select your text layer.
-6. Click `Beat Lyrics`.
+- `Impact Title`: a readable cinematic title slam that preserves the original text color, then adds punch zoom, short hit shake, dark impact shadow, and cyan/gold shock echoes.
+- `Echo Trail`: layered transparent delayed afterimages for fast cyber/electronic motion.
+- `Knife Shatter`: cuts text into irregular blocks, scatters them, then rebuilds.
+- `Echo Burst`: stronger burst-style echo afterimages.
+- `Mischief Text`: playful text chaos with random case, symbols, wiggle, and bounce.
 
 ## Cleanup
 
@@ -130,4 +131,16 @@ This is a ScriptUI panel, not a native C++ After Effects plugin. It works by com
 
 The logo assets are included in `KANA Kinetic Text Lab Assets/`.
 
-No license has been selected yet.
+## Copyright
+
+Copyright © Tokyo AI Visuals LLC
+
+## Support Future Development
+
+Help fund GPU time, testing, and future updates.
+
+GPU Support — ¥500 JPY (approx. $3 USD)  
+https://www.paypal.com/paypalme/kanaworksai/500
+
+Future Development Support — ¥1500 JPY (approx. $10 USD)  
+https://www.paypal.com/paypalme/kanaworksai/1500
