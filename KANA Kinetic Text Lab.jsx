@@ -292,8 +292,9 @@
         try {
             var bundledLink = findXLinkFile();
             if (bundledLink && bundledLink.exists) {
-                bundledLink.execute();
-                return;
+                if (bundledLink.execute()) {
+                    return;
+                }
             }
         } catch (err0) {
         }
