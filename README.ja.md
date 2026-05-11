@@ -85,7 +85,7 @@ Window > KANA Kinetic Text Lab.jsx
 https://x.com/KanaWorks_AI
 ```
 
-ボタンを押しても URL だけが表示され、ブラウザが開かない場合は、パネルを閉じて `Window > KANA Kinetic Text Lab.jsx` から開き直してください。アセットフォルダには、リンクを安定して開くための `KanaWorks_AI.webloc` と `KanaWorks_AI.url` が含まれています。
+After Effects がブラウザ起動をブロックする場合、パネルが AE のスクリプトファイル/ネットワークアクセスを有効にするか確認します。OK を選ぶと、システムブラウザで X プロフィールを開けます。
 
 ## エフェクト
 

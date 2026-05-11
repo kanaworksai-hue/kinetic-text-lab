@@ -289,16 +289,44 @@
     function openExternalUrl(url) {
         var isWindows = $.os.toLowerCase().indexOf("windows") >= 0;
 
+        if (openBundledLink()) {
+            return;
+        }
+
+        if (openUrlWithSystem(url, isWindows)) {
+            return;
+        }
+
+        if (openUrlWithTempShortcut(url, isWindows)) {
+            return;
+        }
+
+        if (confirm("After Effects is blocking external browser links.\n\nEnable script file/network access for After Effects and open this X profile?")) {
+            enableScriptFileNetworkAccess();
+            if (openUrlWithSystem(url, isWindows) || openUrlWithTempShortcut(url, isWindows) || openBundledLink()) {
+                return;
+            }
+            alert("Permission was updated, but After Effects may need a restart.\n\nAfter restart, click X @KanaWorks_AI again.\n\nURL:\n" + url);
+            return;
+        }
+
+        alert("Open this URL:\n" + url);
+    }
+
+    function openBundledLink() {
         try {
             var bundledLink = findXLinkFile();
             if (bundledLink && bundledLink.exists) {
                 if (bundledLink.execute()) {
-                    return;
+                    return true;
                 }
             }
         } catch (err0) {
         }
+        return false;
+    }
 
+    function openUrlWithSystem(url, isWindows) {
         try {
             if (typeof system !== "undefined" && system.callSystem) {
                 if (isWindows) {
@@ -306,11 +334,14 @@
                 } else {
                     system.callSystem('open "' + url + '"');
                 }
-                return;
+                return true;
             }
         } catch (err1) {
         }
+        return false;
+    }
 
+    function openUrlWithTempShortcut(url, isWindows) {
         try {
             var linkFile;
             if (isWindows) {
@@ -319,8 +350,7 @@
                 if (linkFile.open("w")) {
                     linkFile.write("[InternetShortcut]\r\nURL=" + url + "\r\n");
                     linkFile.close();
-                    linkFile.execute();
-                    return;
+                    return linkFile.execute();
                 }
             } else {
                 linkFile = File(Folder.temp.fsName + "/KANA_Kinetic_Text_Lab_X.webloc");
@@ -331,22 +361,23 @@
                     linkFile.write("\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n");
                     linkFile.write("<plist version=\"1.0\"><dict><key>URL</key><string>" + url + "</string></dict></plist>\n");
                     linkFile.close();
-                    linkFile.execute();
-                    return;
+                    return linkFile.execute();
                 }
             }
         } catch (err2) {
         }
+        return false;
+    }
 
+    function enableScriptFileNetworkAccess() {
         try {
-            if (isWindows) {
-                system.callSystem('cmd /c start "" "' + url + '"');
-            } else {
-                system.callSystem('open "' + url + '"');
-            }
+            app.preferences.savePrefAsLong("Main Pref Section v2", "Pref_SCRIPTING_FILE_NETWORK_SECURITY", 1);
+            app.preferences.savePrefAsLong("Main Pref Section", "Pref_SCRIPTING_FILE_NETWORK_SECURITY", 1);
+            app.preferences.saveToDisk();
+            return true;
         } catch (err3) {
-            alert("Open this URL:\n" + url);
         }
+        return false;
     }
 
     function getComp() {

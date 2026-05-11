@@ -85,7 +85,7 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 https://x.com/KanaWorks_AI
 ```
 
-如果按钮只弹出网址，没有打开浏览器，请关闭面板，然后从 `窗口 > KANA Kinetic Text Lab.jsx` 重新打开。资源文件夹里包含 `KanaWorks_AI.webloc` 和 `KanaWorks_AI.url`，用于更稳定地打开网页链接。
+如果 AE 阻止打开浏览器，面板会询问是否开启 AE 的脚本文件/网络访问权限。选择 OK 后，面板才能调用系统浏览器打开 X 主页。
 
 ## 效果说明
 
