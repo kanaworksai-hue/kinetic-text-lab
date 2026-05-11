@@ -85,6 +85,8 @@ The `X @KanaWorks_AI` button opens the creator profile:
 https://x.com/KanaWorks_AI
 ```
 
+If the button only shows the URL instead of opening a browser, close the panel and reopen it from `Window > KANA Kinetic Text Lab.jsx`. The asset folder includes `KanaWorks_AI.webloc` and `KanaWorks_AI.url` as bundled browser shortcuts for more reliable linking.
+
 ## Effects
 
 ### Reveal

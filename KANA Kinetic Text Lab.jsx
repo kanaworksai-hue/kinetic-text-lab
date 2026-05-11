@@ -18,6 +18,8 @@
     var X_URL = "https://x.com/KanaWorks_AI";
     var ASSET_FOLDER_NAME = "KANA Kinetic Text Lab Assets";
     var LOGO_FILENAME = "kana_logo_72.png";
+    var X_LINK_MAC_FILENAME = "KanaWorks_AI.webloc";
+    var X_LINK_WIN_FILENAME = "KanaWorks_AI.url";
 
     function buildUI(thisObj) {
         var pal = (thisObj instanceof Panel)
@@ -260,11 +262,20 @@
     }
 
     function findLogoFile() {
+        return findAssetFile(LOGO_FILENAME);
+    }
+
+    function findXLinkFile() {
+        var isWindows = $.os.toLowerCase().indexOf("windows") >= 0;
+        return findAssetFile(isWindows ? X_LINK_WIN_FILENAME : X_LINK_MAC_FILENAME);
+    }
+
+    function findAssetFile(filename) {
         var scriptFolder = File($.fileName).parent;
         var candidates = [
-            File(scriptFolder.fsName + "/" + ASSET_FOLDER_NAME + "/" + LOGO_FILENAME),
-            File(scriptFolder.fsName + "/assets/" + LOGO_FILENAME),
-            File(scriptFolder.fsName + "/" + LOGO_FILENAME)
+            File(scriptFolder.fsName + "/" + ASSET_FOLDER_NAME + "/" + filename),
+            File(scriptFolder.fsName + "/assets/" + filename),
+            File(scriptFolder.fsName + "/" + filename)
         ];
 
         for (var i = 0; i < candidates.length; i++) {
@@ -277,6 +288,15 @@
 
     function openExternalUrl(url) {
         var isWindows = $.os.toLowerCase().indexOf("windows") >= 0;
+
+        try {
+            var bundledLink = findXLinkFile();
+            if (bundledLink && bundledLink.exists) {
+                bundledLink.execute();
+                return;
+            }
+        } catch (err0) {
+        }
 
         try {
             if (typeof system !== "undefined" && system.callSystem) {
