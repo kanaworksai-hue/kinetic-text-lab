@@ -1,6 +1,8 @@
-# Kinetic Text Lab
+# KANA Kinetic Text Lab
 
-Kinetic Text Lab は、After Effects でタイトル、歌詞、字幕、ロゴ、MV 風の文字演出、サイバー系グリッチ文字を簡単に作るための ScriptUI パネルです。
+KANA Kinetic Text Lab は、After Effects でタイトル、歌詞、字幕、ロゴ、MV 風の文字演出、サイバー系グリッチ文字を簡単に作るための ScriptUI パネルです。
+
+Creator: [KANA / KanaWorks_AI](https://x.com/KanaWorks_AI)
 
 Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -18,6 +20,8 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 - カラー残像トレイル
 - 音楽に反応する歌詞アニメーション
 - ワンクリッククリーンアップ
+- KanaWorks_AI ロゴ表示
+- `X @KanaWorks_AI` ボタンで作者の X プロフィールを開く
 
 ## 必要環境
 
@@ -29,7 +33,14 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 
 ### macOS
 
-`Kinetic Text Lab.jsx` を次の場所にコピーします。
+次の 2 つを After Effects の ScriptUI Panels フォルダにコピーします。
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+コピー先：
 
 ```text
 /Applications/Adobe After Effects 2026/Scripts/ScriptUI Panels/
@@ -37,7 +48,14 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 
 ### Windows
 
-`Kinetic Text Lab.jsx` を次の場所にコピーします。
+次の 2 つを After Effects の ScriptUI Panels フォルダにコピーします。
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+コピー先：
 
 ```text
 C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI Panels\
@@ -46,13 +64,13 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 After Effects を再起動して、次から開きます。
 
 ```text
-Window > Kinetic Text Lab.jsx
+Window > KANA Kinetic Text Lab.jsx
 ```
 
 ## 基本的な使い方
 
 1. After Effects のコンポジションでテキストレイヤーを作成、または選択します。
-2. `Window > Kinetic Text Lab.jsx` を開きます。
+2. `Window > KANA Kinetic Text Lab.jsx` を開きます。
 3. 次の値を調整します。
    - `Strength`：効果の強さ
    - `Speed`：アニメーション速度
@@ -60,6 +78,12 @@ Window > Kinetic Text Lab.jsx
 4. 使いたい効果ボタンをクリックします。
 
 何も起きない場合は、選択しているレイヤーがテキストレイヤーか確認してください。
+
+上部の `X @KanaWorks_AI` ボタンから作者の X プロフィールを開けます。
+
+```text
+https://x.com/KanaWorks_AI
+```
 
 ## エフェクト
 
@@ -101,5 +125,7 @@ Window > Kinetic Text Lab.jsx
 ## メモ
 
 これは C++ のネイティブ AE プラグインではなく、ScriptUI パネルです。After Effects 標準のエフェクト、エクスプレッション、補助レイヤーを組み合わせて動作します。
+
+ロゴ素材は `KANA Kinetic Text Lab Assets/` に含まれています。
 
 まだライセンスは選択されていません。

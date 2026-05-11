@@ -1,6 +1,8 @@
-# Kinetic Text Lab
+# KANA Kinetic Text Lab
 
-Kinetic Text Lab is a beginner-friendly After Effects ScriptUI panel for creating stylish text effects for titles, lyrics, captions, logos, and MV-style motion graphics.
+KANA Kinetic Text Lab is a beginner-friendly After Effects ScriptUI panel for creating stylish text effects for titles, lyrics, captions, logos, and MV-style motion graphics.
+
+Created by [KANA / KanaWorks_AI](https://x.com/KanaWorks_AI).
 
 Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -18,6 +20,8 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 - Echo trail
 - Beat-reactive lyrics
 - One-click cleanup
+- Built-in KanaWorks_AI logo branding
+- `X @KanaWorks_AI` button that opens the creator profile
 
 ## Requirements
 
@@ -29,7 +33,14 @@ Languages: [English](README.md) | [中文](README.zh-CN.md) | [日本語](README
 
 ### macOS
 
-Copy `Kinetic Text Lab.jsx` to:
+Copy both of these into the After Effects ScriptUI Panels folder:
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+Target folder:
 
 ```text
 /Applications/Adobe After Effects 2026/Scripts/ScriptUI Panels/
@@ -37,7 +48,14 @@ Copy `Kinetic Text Lab.jsx` to:
 
 ### Windows
 
-Copy `Kinetic Text Lab.jsx` to:
+Copy both of these into the After Effects ScriptUI Panels folder:
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+Target folder:
 
 ```text
 C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI Panels\
@@ -46,13 +64,13 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 Then restart After Effects and open:
 
 ```text
-Window > Kinetic Text Lab.jsx
+Window > KANA Kinetic Text Lab.jsx
 ```
 
 ## Basic Usage
 
 1. Create or select a text layer in an After Effects composition.
-2. Open `Window > Kinetic Text Lab.jsx`.
+2. Open `Window > KANA Kinetic Text Lab.jsx`.
 3. Adjust:
    - `Strength`: effect intensity
    - `Speed`: animation speed
@@ -60,6 +78,12 @@ Window > Kinetic Text Lab.jsx
 4. Click an effect button.
 
 If nothing happens, make sure the selected layer is a text layer.
+
+The `X @KanaWorks_AI` button opens the creator profile:
+
+```text
+https://x.com/KanaWorks_AI
+```
 
 ## Effects
 
@@ -101,5 +125,7 @@ Click `Clean KTL` to remove effects, expressions, and helper layers created by t
 ## Notes
 
 This is a ScriptUI panel, not a native C++ After Effects plugin. It works by combining built-in After Effects effects, expressions, and helper layers.
+
+The logo assets are included in `KANA Kinetic Text Lab Assets/`.
 
 No license has been selected yet.

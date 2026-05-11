@@ -1,20 +1,23 @@
 #target aftereffects
 
 /*
-  Kinetic Text Lab
+  KANA Kinetic Text Lab
   A dedicated After Effects ScriptUI panel for punchy title, lyric, logo,
   and cyber/glitch text effects.
 
   Install:
-  Copy this file to:
+  Copy this file and the asset folder to:
   /Applications/Adobe After Effects 2026/Scripts/ScriptUI Panels/
 
-  Then restart After Effects and open it from Window > Kinetic Text Lab.jsx.
+  Then restart After Effects and open it from Window > KANA Kinetic Text Lab.jsx.
 */
 
 (function KineticTextLab(thisObj) {
-    var SCRIPT_NAME = "Kinetic Text Lab";
+    var SCRIPT_NAME = "KANA Kinetic Text Lab";
     var PREFIX = "KTL";
+    var X_URL = "https://x.com/KanaWorks_AI";
+    var ASSET_FOLDER_NAME = "KANA Kinetic Text Lab Assets";
+    var LOGO_FILENAME = "kana_logo_72.png";
 
     function buildUI(thisObj) {
         var pal = (thisObj instanceof Panel)
@@ -26,11 +29,40 @@
         pal.spacing = 8;
         pal.margins = 10;
 
-        var title = pal.add("statictext", undefined, "Kinetic Text Lab");
+        var header = pal.add("group");
+        header.orientation = "row";
+        header.alignChildren = ["left", "center"];
+        header.spacing = 10;
+        header.alignment = ["fill", "top"];
+
+        var logoFile = findLogoFile();
+        if (logoFile) {
+            try {
+                var logo = header.add("image", undefined, ScriptUI.newImage(logoFile));
+                logo.helpTip = "KanaWorks_AI";
+            } catch (logoErr) {
+            }
+        }
+
+        var brandColumn = header.add("group");
+        brandColumn.orientation = "column";
+        brandColumn.alignChildren = ["left", "top"];
+        brandColumn.spacing = 4;
+
+        var title = brandColumn.add("statictext", undefined, "KANA Kinetic Text Lab");
         title.alignment = ["fill", "top"];
 
-        var help = pal.add("statictext", undefined, "Select text layers, then click a preset.");
+        var help = brandColumn.add("statictext", undefined, "Select text layers, then click a preset.");
         help.alignment = ["fill", "top"];
+
+        var promoRow = brandColumn.add("group");
+        promoRow.orientation = "row";
+        promoRow.alignChildren = ["left", "center"];
+        var xBtn = promoRow.add("button", undefined, "X @KanaWorks_AI");
+        xBtn.helpTip = "Open https://x.com/KanaWorks_AI";
+        xBtn.onClick = function () {
+            openExternalUrl(X_URL);
+        };
 
         var controls = pal.add("panel", undefined, "Quick Controls");
         controls.orientation = "column";
@@ -225,6 +257,75 @@
             return max;
         }
         return value;
+    }
+
+    function findLogoFile() {
+        var scriptFolder = File($.fileName).parent;
+        var candidates = [
+            File(scriptFolder.fsName + "/" + ASSET_FOLDER_NAME + "/" + LOGO_FILENAME),
+            File(scriptFolder.fsName + "/assets/" + LOGO_FILENAME),
+            File(scriptFolder.fsName + "/" + LOGO_FILENAME)
+        ];
+
+        for (var i = 0; i < candidates.length; i++) {
+            if (candidates[i].exists) {
+                return candidates[i];
+            }
+        }
+        return null;
+    }
+
+    function openExternalUrl(url) {
+        var isWindows = $.os.toLowerCase().indexOf("windows") >= 0;
+
+        try {
+            if (typeof system !== "undefined" && system.callSystem) {
+                if (isWindows) {
+                    system.callSystem('cmd /c start "" "' + url + '"');
+                } else {
+                    system.callSystem('open "' + url + '"');
+                }
+                return;
+            }
+        } catch (err1) {
+        }
+
+        try {
+            var linkFile;
+            if (isWindows) {
+                linkFile = File(Folder.temp.fsName + "/KANA_Kinetic_Text_Lab_X.url");
+                linkFile.encoding = "UTF-8";
+                if (linkFile.open("w")) {
+                    linkFile.write("[InternetShortcut]\r\nURL=" + url + "\r\n");
+                    linkFile.close();
+                    linkFile.execute();
+                    return;
+                }
+            } else {
+                linkFile = File(Folder.temp.fsName + "/KANA_Kinetic_Text_Lab_X.webloc");
+                linkFile.encoding = "UTF-8";
+                if (linkFile.open("w")) {
+                    linkFile.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+                    linkFile.write("<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" ");
+                    linkFile.write("\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n");
+                    linkFile.write("<plist version=\"1.0\"><dict><key>URL</key><string>" + url + "</string></dict></plist>\n");
+                    linkFile.close();
+                    linkFile.execute();
+                    return;
+                }
+            }
+        } catch (err2) {
+        }
+
+        try {
+            if (isWindows) {
+                system.callSystem('cmd /c start "" "' + url + '"');
+            } else {
+                system.callSystem('open "' + url + '"');
+            }
+        } catch (err3) {
+            alert("Open this URL:\n" + url);
+        }
     }
 
     function getComp() {

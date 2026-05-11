@@ -1,6 +1,8 @@
-# Kinetic Text Lab
+# KANA Kinetic Text Lab
 
-Kinetic Text Lab 是一个适合新手使用的 After Effects ScriptUI 面板，用来快速制作标题、歌词、字幕、LOGO、MV 文字动画和赛博故障文字效果。
+KANA Kinetic Text Lab 是一个适合新手使用的 After Effects ScriptUI 面板，用来快速制作标题、歌词、字幕、LOGO、MV 文字动画和赛博故障文字效果。
+
+作者：[KANA / KanaWorks_AI](https://x.com/KanaWorks_AI)
 
 语言：[English](README.md) | [中文](README.zh-CN.md) | [日本語](README.ja.md)
 
@@ -18,6 +20,8 @@ Kinetic Text Lab 是一个适合新手使用的 After Effects ScriptUI 面板，
 - 彩色残影拖尾
 - 跟随音乐跳动的歌词
 - 一键清理效果
+- 内置 KanaWorks_AI LOGO 品牌展示
+- `X @KanaWorks_AI` 按钮，可打开作者 X 主页
 
 ## 使用条件
 
@@ -29,7 +33,14 @@ Kinetic Text Lab 是一个适合新手使用的 After Effects ScriptUI 面板，
 
 ### macOS
 
-把 `Kinetic Text Lab.jsx` 复制到：
+把下面两个项目一起复制到 AE 的 ScriptUI Panels 文件夹：
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+目标文件夹：
 
 ```text
 /Applications/Adobe After Effects 2026/Scripts/ScriptUI Panels/
@@ -37,7 +48,14 @@ Kinetic Text Lab 是一个适合新手使用的 After Effects ScriptUI 面板，
 
 ### Windows
 
-把 `Kinetic Text Lab.jsx` 复制到：
+把下面两个项目一起复制到 AE 的 ScriptUI Panels 文件夹：
+
+```text
+KANA Kinetic Text Lab.jsx
+KANA Kinetic Text Lab Assets/
+```
+
+目标文件夹：
 
 ```text
 C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI Panels\
@@ -46,13 +64,13 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 然后重启 After Effects，打开：
 
 ```text
-窗口 > Kinetic Text Lab.jsx
+窗口 > KANA Kinetic Text Lab.jsx
 ```
 
 ## 基本用法
 
 1. 在 AE 合成里创建或选中一个文字图层。
-2. 打开 `窗口 > Kinetic Text Lab.jsx`。
+2. 打开 `窗口 > KANA Kinetic Text Lab.jsx`。
 3. 调整三个参数：
    - `Strength`：效果强度
    - `Speed`：动画速度
@@ -60,6 +78,12 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 4. 点击一个效果按钮。
 
 如果点击按钮没有反应，通常是因为你选中的不是文字图层。
+
+面板顶部的 `X @KanaWorks_AI` 按钮会打开作者 X 主页：
+
+```text
+https://x.com/KanaWorks_AI
+```
 
 ## 效果说明
 
@@ -101,5 +125,7 @@ C:\Program Files\Adobe\Adobe After Effects 2026\Support Files\Scripts\ScriptUI P
 ## 说明
 
 这是 ScriptUI 面板，不是 C++ 原生 AE 插件。它通过组合 AE 内置效果、表达式和辅助图层来制作文字效果。
+
+LOGO 文件包含在 `KANA Kinetic Text Lab Assets/` 文件夹里。
 
 暂时还没有选择开源许可证。
